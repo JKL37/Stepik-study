@@ -2,15 +2,15 @@ import random
 
 
 def begin():
-    global a, b, c, count
-    a = random.randint(1, 100)
+    global a, b, c, count, diap
+    a = random.randint(1, diap)
     count = 0
     b = guess()
     c = guess_more()
 
 
 def is_valid(answer):
-    if 1 <= int(answer) <= 100:
+    if 1 <= int(answer) <= diap:
         return True
     else:
         return False
@@ -18,7 +18,7 @@ def is_valid(answer):
 
 def guess():
 
-    n = input("Введите число от 1 до 100:")
+    n = input(f"Введите число от 1 до {diap}:")
     while is_valid(n) == False:
         n = input("Некорректное число! Введите заново:")
     return int(n)
@@ -51,6 +51,8 @@ def guess_more():
 
 
 print("Добро пожаловать в числовую угадайку!")
+print("Укажите правую границу диапазона чисел:")
+diap = int(input())
 a = 0
 count = 0
 b = None
